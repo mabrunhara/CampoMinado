@@ -8,4 +8,13 @@ cadeia tabuleiro [10][10]
 linha, coluna = int
 inicio
 // Seção de Comandos 
+// INICIAR TABULEIRO
+para (linha = 0; linha <tamanho; linha ++)
+para (coluna = 0; coluna <tamanho; coluna ++)
+tabuleiro  [linha][coluna] = "F+0"
+
+//MOSTRAR NA TELA
+para (linha = 0; linha <tamanho; linha ++)
+para (coluna = 0; coluna <tamanho; coluna ++)
+escreva  [tabuleiro][linha]
 fimalgoritmo
