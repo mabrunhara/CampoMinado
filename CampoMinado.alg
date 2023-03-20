@@ -18,6 +18,8 @@ score: inteiro
 Inicio
 // Seção de Comandos, procedimento, funções, operadores, etc...
 
+score := 0
+
 tabuleiro1[1,1]:= 1
 tabuleiro1[1,2]:= 0
 tabuleiro1[1,3]:= 0
@@ -61,39 +63,44 @@ leia (iniciar)
 // a linha enquanto seleciona a coluna.
 para l de 1 ate 5 faca
      para c de 1 ate 5 faca
-     tabuleiro2[l,c]:= "*"
+     tabuleiro2[l,c]:= " - * - "
      // mostra na tela
      escreva (tabuleiro2 [l,c])
      fimpara
 escreval
 fimpara
 escreval
+repita
 escreval ("Escolha uma linha de 1 a 5")
 leia (linha)
 
 escreval ("Escolha uma coluna de 1 a 5")
 leia (coluna)
 
-
-tabuleiro
-
-se (linha) E (coluna) = 1  entao
-escreval ("Você perdeu!")
+se tabuleiro1[linha, coluna] = 1  entao
+escreval ("Você perdeu! Tente novamente.")
+tabuleiro2[linha,coluna]:= " - 1 - "
 senao
-escreva ("Você ganhou.")
+escreva ("Você está ganhando! Continue assim.")
+score := score +1
+tabuleiro2[linha,coluna]:= " - 0 - "
 fimse
 //mostrar as opções na tela
 
+escreval
 para l de 1 ate 5 faca
      para c de 1 ate 5 faca
-     tabuleiro2[l,c]:= "*"
-     escreva (tabuleiro1 [l,c])
+     escreva (tabuleiro2 [l,c])
+     fimpara
+escreval
 fimpara
 
+se score = 18 entao
+escreva ("Uhul! Você venceu.")
+fimse
 
+ate (tabuleiro1[linha, coluna] = 1) ou (score = 18)
 
-
-fimpara
 //pontuar o score
      
 Fimalgoritmo
